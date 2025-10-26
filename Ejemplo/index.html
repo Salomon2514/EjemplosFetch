@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AJAX con jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  </head>
+  <body>
+    <input type="text" id="nombre" placeholder="Tu nombre" />
+    <button id="enviar">Enviar</button>
+    <p id="respuesta"></p>
+
+    <script>
+      $("#enviar").click(function () {
+        const nombre = $("#nombre").val();
+        $.post("procesar.php", { nombre: nombre }, function (data) {
+          $("#respuesta").text(data);
+        });
+      });
+    </script>
+  </body>
+</html>
